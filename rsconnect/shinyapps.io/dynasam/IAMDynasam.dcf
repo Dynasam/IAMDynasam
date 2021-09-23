@@ -5,9 +5,9 @@ account: dynasam
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4711074
-bundleId: 5063673
+bundleId: 5065732
 url: https://dynasam.shinyapps.io/IAMDynasam/
-when: 1632396185.93617
-lastSyncTime: 1632396185.93617
+when: 1632431263.0176
+lastSyncTime: 1632431263.0176
 asMultiple: FALSE
 asStatic: FALSE

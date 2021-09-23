@@ -15,9 +15,9 @@ app_ui <- function(request) {
       allowPWA = TRUE, #FALSE,
       options = list(
         theme = c("ios", "md", "auto", "aurora"),
-        dark = TRUE,
+        dark = FALSE, #TRUE,
         filled = FALSE,
-        color = "#007aff",
+        color = "#27990b", #"#007aff",
         touch = list(
           tapHold = TRUE,
           tapHoldDelay = 750,
@@ -31,7 +31,7 @@ app_ui <- function(request) {
         toolbar = list(hideOnPageScroll = FALSE),
         pullToRefresh = FALSE
       ),
-      title = "My app",
+      title = "Dynasam IAM",
       f7TabLayout(
         # panels = tagList(
         #   f7Panel(
@@ -58,75 +58,120 @@ app_ui <- function(request) {
         ),
         f7Tabs(
           animated = TRUE,
+          # f7Tab(
+          #   tabName = "SSP-scenario",
+          #   icon = f7Icon("eye"),
+          #   active = TRUE,
+          #   # f7Picker(
+          #   #   inputId = "picSSP",
+          #   #   placeholder = "Some text here!",
+          #   #   label = "Välj SSP-scenario",
+          #   #   choices = c('SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5')
+          #   # ),
+          #   # textOutput("picSSPval")
+          # ),
           f7Tab(
-            tabName = "SSP-scenario",
-            icon = f7Icon("folder"),
+            tabName = "Scenarier",
+            icon = f7Icon("eye"),
             active = TRUE,
-            f7Picker(
-              inputId = "picSSP",
-              placeholder = "Some text here!",
-              label = "Välj SSP-scenario",
-              choices = c('SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5')
-            ),
-            textOutput("picSSPval")
-          ),
-          f7Tab(
-            tabName = "Modellantaganden",
-            icon = f7Icon("keyboard"),
-            active = FALSE,
-            "Tab 2",
-            f7Slider(
-              inputId = "rhoVal",
-              label = "Individuell tidspreferens",
-              max = 6.0,
-              min = 0.0,
-              step=0.25,
-              value = 1.25,
-              scaleSteps = 6,
-              scaleSubSteps = 4,
-              scale = TRUE,
-              color = "orange",
-              labels = tagList(
-                f7Icon("circle"),
-                f7Icon("circle_fill")
-              )
+            #"Tab 2",
+            f7Row(
+              f7Block(
+#                f7BlockHeader(),
+                "Välj ett scenario, det bygger på föreställningar
+                om befolkningsutveckling, tillväxt och förväntade
+                utsläpp.",
+                f7Select(
+                  inputId = "picSSP",
+                  #placeholder = "Some text here!",
+                  label = "Välj SSP-scenario",
+                  choices = c('SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5')
+                ),
+#                f7BlockFooter(),
+                "För en närmare beskrivning av scenariorna se nästa sida",
               ),
-            f7Slider(
-              inputId = "etaVal",
-              label = "Konsumtionselasticitet",
-              max = 6.0,
-              min = 0.0,
-              step=0.25,
-              value = 1.25,
-              scaleSteps = 6,
-              scaleSubSteps = 4,
-              scale = TRUE,
-              color = "orange",
-              labels = tagList(
-                f7Icon("circle"),
-                f7Icon("circle_fill")
-              )
             ),
-            f7Picker(
-              inputId = "damageFctn",
-              placeholder = "Some text here!",
-              label = "Välj skadefunktion",
-              choices = c('HowardTotal', 'HowardNonCatastrophic')
+            f7Flex(
+              f7Block(
+#                f7BlockHeader(),
+                "Valet av diskonteringen av framtiden
+                    och om risker är avgörande för hur mycket
+                    vi är beredda att offra konsumtion idag
+                    för att öka förutsättningarna att nå
+                    lägre utsläpp.",
+                  f7Row(
+                    f7Slider(
+                      inputId = "rhoVal",
+                      label = "Individuell tidspreferens",
+                      max = 2.0,
+                      min = 0.0,
+                      step=0.25,
+                      value = 1,
+                      scaleSteps = 2,
+                      scaleSubSteps = 4,
+                      scale = TRUE,
+                      color = "orange"#,
+                      #labels = tagList("Min","Max"
+                        #f7Icon("circle"),
+                        #f7Icon("circle_fill")
+                      #)
+                      ),
+                    f7Slider(
+                      inputId = "etaVal",
+                      label = "Konsumtionselasticitet",
+                      max = 2.0,
+                      min = 0.0,
+                      step=0.25,
+                      value = 0.5,
+                      scaleSteps = 2,
+                      scaleSubSteps = 4,
+                      scale = TRUE,
+                      color = "orange"#,
+                      # labels = tagList(
+                      #   f7Icon("circle"),
+                      #   f7Icon("circle_fill")
+                      # )
+                    ),
+                  ),
+                ),
+              ),
+            #),
+            f7Row(
+              f7Block(
+                f7BlockHeader(),
+                "Slutligen välj den skadefunktion som är aktuell.
+                Skadefunktionen är en bedömning av hur stora skador
+                som en ökande temperatur förväntas medföra.",
+                f7Select(
+                  inputId = "damageFctn",
+                  #placeholder = "Some text here!",
+                  label = "Välj skadefunktion",
+                  #choices = c('damageHowardTotal','damageHowardNonCatastrophic','damageBurkeWithLag', 'damageDICE')
+                  choices = c('damageHowardTotal','damageBurkeWithLag', 'damageDICE')
+                ),
+              ),
             ),
-            f7Picker(
-              inputId = "abatementFctn",
-              placeholder = "Some text here!",
-              label = "Välj reduktionsfunktion",
-              choices = c('aaa', 'bbb')
+              #f7Row(
+                # f7Select(
+                #   inputId = "abatementFctn",
+                #   #placeholder = "Some text here!",
+                #   label = "Välj reduktionsfunktion",
+                #   choices = c('p05', 'p50', 'p95')
+                # ),
+              #),
+            #),
+            f7Block(
+              f7BlockTitle("Resultat",size="medium")
             ),
-            verbatimTextOutput("rhoval"),
-            plotOutput("emissionsPlot"),
-            plotOutput("temperaturePlot"),
-            plotOutput("sccPlot")
+            #verbatimTextOutput("rhoval"),
+            plotOutput("allPlot")#,
+#            plotOutput("emissionsPlot"),
+#            plotOutput("temperaturePlot"),
+#            plotOutput("sccPlot")
           ),
           f7Tab(
-            tabName = "Tab 3",
-            icon = f7Icon("layers_alt"),
+            tabName = "Berättelser",
+            icon = f7Icon("doc_text"),
             active = FALSE,
             "Tab 3"
           )
