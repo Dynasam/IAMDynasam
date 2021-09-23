@@ -11,3 +11,5 @@ golem::document_and_reload()
 # Run the application
 run_app()
 
+usethis::create_github_token()
+usethis::edit_r_environ()"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")
