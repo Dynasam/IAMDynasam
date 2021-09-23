@@ -3,7 +3,10 @@
 # register_service_worker is FALSE, shinyMobile already does it.
 # We also don't need to create web dependencies.
 
-remotes::install_github("RinteRface/charpente")
+install.packages("remotes")
+library(remotes)
+devtools::install_github("RinteRface/charpente")
+
 library(charpente)
 charpente::set_pwa(
   "inst/app",
@@ -11,7 +14,10 @@ charpente::set_pwa(
   create_dependencies = FALSE
 )
 
-
-devtools::load_all()
-run_app()
+#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
+# usethis::gh_token_help()
+# gitcreds::gitcreds_set()
+# devtools::load_all()
+#
+# run_app()
 
