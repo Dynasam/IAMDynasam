@@ -1,0 +1,13 @@
+name: IAMDynasam
+title: IAMDynasam
+username:
+account: dynasam
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4711074
+bundleId: 5063101
+url: https://dynasam.shinyapps.io/IAMDynasam/
+when: 1632382908.4124
+lastSyncTime: 1632382908.4124
+asMultiple: FALSE
+asStatic: FALSE
