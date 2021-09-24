@@ -22,6 +22,8 @@ usethis::use_package("tidyr")
 usethis::use_package("gridExtra")
 usethis::use_package("scales")
 usethis::use_package("ggpubr")
+#usethis::use_package("charpente")
+
 ## Add modules ----
 ## Create a module infrastructure in R/
 golem::add_module( name = "name_of_module1" ) # Name of the module

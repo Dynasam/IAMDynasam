@@ -25,7 +25,7 @@ golem::fill_desc(
   author_first_name = "Fredrik", # Your First Name
   author_last_name = "Cullberg Jansson", # Your Last Name
   author_email = "fredrik.cullberg.jansson@dynasam.com", # Your Email
-  repo_url = "https://github.com/Dynasam/IAMDynasamShiny.git" # The URL of the GitHub Repo (optional)
+  repo_url = "https://github.com/Dynasam/IAMDynasamShiny" # The URL of the GitHub Repo (optional)
 )
 
 ## Set {golem} options ----
