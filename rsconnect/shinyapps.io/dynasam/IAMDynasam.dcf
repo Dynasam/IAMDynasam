@@ -5,10 +5,10 @@ account: dynasam
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4711074
-bundleId: 5067494
+bundleId: 5071000
 url: https://dynasam.shinyapps.io/IAMDynasam/
-when: 1632476812.84217
-lastSyncTime: 1632476812.84217
+when: 1632567718.92493
+lastSyncTime: 1632567718.92493
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: data-raw/SSP_IAM_V2_201811.csv.zip

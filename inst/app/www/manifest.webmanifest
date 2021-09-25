@@ -1,15 +1,11 @@
 {
-  "name": "My Progressive Web App",
+  "name": "IAM Dynasam",
   "short_name": "My App",
   "description": "What it does!",
-  "lang": "en-US",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "start_url": "/?",
   "icons": [
     {
-      "src": "icons/icon-144.png",
+      "src": "icons/favcion.png",
       "sizes": "144x144"
     }
   ],

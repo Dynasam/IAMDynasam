@@ -53,6 +53,8 @@ app_server <- function( input, output, session ) {
   #     theme_linedraw()
   # })
 
+  #Använder CE=cumEmissions, men jag skulle hellre vilja använda CO2-koncentation. Kan jag
+  #enkelt få fram den från körningarna?
   output$allPlot <- renderPlot({
 
     theme_set(theme_classic())
@@ -74,9 +76,10 @@ app_server <- function( input, output, session ) {
     #g3 <- ggplot(data_long() %>% filter(variable=="temp"), aes(x=Period,y=value,color=value),size=2) +
     g3 <- ggplot(data(), aes(x=Period,y=temp,color=temp),size=2) +
       geom_line()+ ylab("Temperaturförändring \nsedan 1850-1900, \u00B0C") + scg + th
+    g4 <- ggplot(data(), aes(x=Period,y=CE,color=temp),size=2) +
+      geom_line()+ ylab("Kumulativa utsläpp") + scg + th
 
-
-    ggarrange(g1, g2, g3,nrow=2,ncol=2, common.legend = TRUE, legend="bottom")
+    ggarrange(g4, g2, g1, g3,nrow=2,ncol=2, common.legend = TRUE, legend="bottom")
   })
   output$emissionsPlot <- renderPlot({
     #print(names(file1))

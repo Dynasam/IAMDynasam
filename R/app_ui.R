@@ -13,10 +13,11 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     f7Page(
       allowPWA = TRUE, #FALSE,
+      preloader=TRUE,
       options = list(
         theme = c("ios", "md", "auto", "aurora"),
         dark = FALSE, #TRUE,
-        filled = FALSE,
+        filled = TRUE,#FALSE,
         color = "#27990b", #"#007aff",
         touch = list(
           tapHold = TRUE,
@@ -173,7 +174,103 @@ app_ui <- function(request) {
             tabName = "Berättelser",
             icon = f7Icon("doc_text"),
             active = FALSE,
-            "Tab 3"
+            f7ExpandableCard(
+              id = "SSP1",
+              title = "SSP1: Sustainability – Taking the Green Road",
+              color = "green",
+              subtitle = "Low challenges to mitigation and adaptation",
+              "The world shifts gradually, but pervasively, toward a more sustainable
+              path, emphasizing more inclusive development that respects perceived
+              environmental boundaries. Management of the global commons slowly
+              improves, educational and health investments accelerate the demographic
+              transition, and the emphasis on economic growth shifts toward a broader
+              emphasis on human well-being. Driven by an increasing commitment to
+              achieving development goals, inequality is reduced both across and
+              within countries. Consumption is oriented toward low material growth
+              and lower resource and energy intensity."
+              ),
+            f7ExpandableCard(
+              id = "SSP2",
+              title = "SSP2: Middle of the Road ",
+              subtitle = "Medium challenges to mitigation and adaptation",
+              color = "yellow",
+              "The world follows a path in which social, economic, and technological
+              trends do not shift markedly from historical patterns. Development and
+              income growth proceeds unevenly, with some countries making relatively
+              good progress while others fall short of expectations. Global and
+              national institutions work toward but make slow progress in achieving
+              sustainable development goals. Environmental systems experience
+              degradation, although there are some improvements and overall the
+              intensity of resource and energy use declines. Global population growth
+              is moderate and levels off in the second half of the century. Income
+              inequality persists or improves only slowly and challenges to reducing
+              vulnerability to societal and environmental changes remain."
+            ),
+            f7ExpandableCard(
+              id = "SSP3",
+              title = "SSP3: Regional Rivalry – A Rocky Road",
+              subtitle = "High challenges to mitigation and adaptation",
+              color = "blue",
+              #image = "https://i.pinimg.com/originals/73/38/6e/73386e0513d4c02a4fbb814cadfba655.jpg",
+              "A resurgent nationalism, concerns about competitiveness and
+              security, and regional conflicts push countries to increasingly
+              focus on domestic or, at most, regional issues. Policies shift
+              over time to become increasingly oriented toward national and
+              regional security issues. Countries focus on achieving energy
+              and food security goals within their own regions at the expense
+              of broader-based development. Investments in education and
+              technological development decline. Economic development is slow,
+              consumption is material-intensive, and inequalities persist or
+              worsen over time. Population growth is low in industrialized
+              and high in developing countries. A low international priority
+              for addressing environmental concerns leads to strong environmental
+              degradation in some regions."
+            ),
+            f7ExpandableCard(
+              id = "SSP4",
+              title = "SSP4: Inequality - A road divided",
+              subtitle = "Low challenges to mitigation, high challenges to adaptation",
+              color = "red",
+              #fullBackground = TRUE,
+              #image = "https://i.ytimg.com/vi/8q_kmxwK5Rg/maxresdefault.jpg",
+              "Highly unequal investments in human capital, combined with
+              increasing disparities in economic opportunity and political
+              power, lead to increasing inequalities and stratification both
+              across and within countries. Over time, a gap widens between
+              an internationally-connected society that contributes to knowledge
+              - and capital-intensive sectors of the global economy, and a
+              fragmented collection of lower-income, poorly educated societies
+              that work in a labor intensive, low-tech economy. Social
+              cohesion degrades and conflict and unrest become increasingly
+              common. Technology development is high in the high-tech economy
+              and sectors. The globally connected energy sector diversifies,
+              with investments in both carbon-intensive fuels like coal and
+              unconventional oil, but also low-carbon energy sources.
+              Environmental policies focus on local issues around middle and
+              high income areas."
+            ),
+            f7ExpandableCard(
+              id = "SSP5",
+              title = "SSP5: Fossil-fueled Development – Taking the Highway",
+              subtitle = "High challenges to mitigation, low challenges to adaptation",
+              color = "purple",
+              #fullBackground = TRUE,
+              #image = "https://i.ytimg.com/vi/8q_kmxwK5Rg/maxresdefault.jpg",
+              "This world places increasing faith in competitive markets, innovation
+              and participatory societies to produce rapid technological progress
+              and development of human capital as the path to sustainable development.
+              Global markets are increasingly integrated. There are also strong
+              investments in health, education, and institutions to enhance human
+              and social capital. At the same time, the push for economic and social
+              development is coupled with the exploitation of abundant fossil fuel
+              resources and the adoption of resource and energy intensive lifestyles
+              around the world. All these factors lead to rapid growth of the global
+              economy, while global population peaks and declines in the 21st century.
+              Local environmental problems like air pollution are successfully managed.
+              There is faith in the ability to effectively manage social and ecological
+              systems, including by geo-engineering if necessary."
+            )
+
           )
         )
       )
